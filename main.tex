@@ -1188,7 +1188,7 @@
 \begin{frame}{Pharmacological targets \hfill {\footnotesize \alert{DockTDesign}}}
     \begin{columns}[c]
         \column{.495\textwidth}
-        Two antimicrobial targets were selected as a case study for generating multitarget inhibitors:
+        Two antimicrobial targets were selected as a case study for generating \textbf{multitarget inhibitors}:
         \begin{itemize}
             \item \textbf{LpxC}\footnote{UDP-3-O-acyl-N-acetylglucosamine deacetylase} (antimicrobial \textbf{target} involved in LPS synthesis).
             \item \textbf{gshA}\footnote{Glutamate–cysteine ligase} (antimicrobial \textbf{target} essential for glutathione biosynthesis).
@@ -1317,22 +1317,23 @@
 %     \Large{\centerline{\textbf{Results}}}
 % \end{frame}
 
-\begin{frame}{Results: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{block}{Experimental design}
-        \textbf{Algorithms:} Single-objective GA, NSGA-II and NSGA-III.
+\begin{frame}{Experimental design \hfill {\footnotesize \alert{DockTDesign}}}
+    % \begin{block}{Experimental design}
+    \textbf{Generative model:} HierVAE (pre-trained on $\sim$1.8M compounds from ChEMBL).
+    \textbf{Algorithm:} NSGA-III (Non-dominated Sorting Genetic Algorithm III).
 
-        \vspace{0.5em}
+    \vspace{0.5em}
 
-        \textbf{Objectives}:
-        \begin{itemize}
-            \item[1.] maximize QED;
-            \item[2.] minimize SA;
-            \item[3.] minimize complexity;
-            \item[4.] maximize similarity against molecule BDBM50074960 (active LpxC);
-            \item[5.] minimize similarity against molecule BDBM50478376 (active LpxC, active MMP-9).
-        \end{itemize}
-    \end{block}
-    \small Work resulted in a publication in an international conference~\cite{da2024generative}.
+    \textbf{Objectives}:
+    \begin{itemize}
+        \item[1.] maximize QED (quantitative estimate of drug-likeness);
+        \item[2.] minimize SA (synthetic accessibility);
+        \item[3.] maximize ligand efficiency\footnote{Ligand efficiency (LE): binding affinity / n. of heavy atoms} against target LpxC;
+        \item[4.] maximize ligand efficiency against target gshA;
+        \item[5.] maximize binding affinity against target LpxC (\alert{DockThor} + \alert{DockTDeep}).
+        \item[6.] maximize binding affinity against target gshA (\alert{DockThor} + \alert{DockTDeep}).
+    \end{itemize}
+    % \end{block}
 \end{frame}
 
 
@@ -1540,7 +1541,7 @@
 
         % \item Treating SA and Cx as \textbf{constraints} (not objectives) improves predicted activity and selectivity.
         \item \textbf{DockTDesign}, together with \textbf{DockThor} and \textbf{DockTDeep}, presents itself as a promising and flexible platform for hit identification, capable of suggesting to the specialist a set of molecules that simultaneously meet multiple objectives.
-
+        \item Publication: \texttt{da Silva, M.M.P. et al. 2024. A Generative Evolutionary Many-Objective Framework: A Case Study in Antimicrobial Agent Design. In Proceedings of the GECCO Companion.}
     \end{itemize}
 
 \end{frame}
