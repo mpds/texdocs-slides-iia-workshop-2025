@@ -22,30 +22,33 @@
 
 
 
-\usepackage[brazil]{babel}  
+\usepackage[english]{babel}  
 \usepackage[utf8]{inputenc}  
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{fontawesome}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 
 %----------------------------------------------------------------------------------------
 %    TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title{DockTDesign}
-\subtitle{Deep Generative Models for \textit{de novo} Drug Design}
+\title{\textbf{DockTDesign}}
+\subtitle{\Large Deep Generative Models for \textit{de novo} Drug Design}
 
 
 \author{Matheus M. P. da Silva}
 
 \institute
 {
-    PhD Defense in Computational Modeling \\
-    National Laboratory for Scientific Computing (LNCC/MCTI) \\
+    PhD in Computational Modeling \\
+    Laboratório Nacional de Computação Científica (LNCC/MCTI) \\
+    \vspace{0.5em}
+    {\faEnvelopeO} \texttt{matheusp@posgrad.lncc.br} \quad {\faGithub} \texttt{\href{https://github.com/mpds}{github.com/mpds}}
     % Your institution for the title page
 }
-\date{Advisors: Laurent E. Dardenne \& Isabella A. Guedes \\ \vspace{0.5em} October 10, 2025}
+\date{November 6, 2025}
 
 %----------------------------------------------------------------------------------------
 %    PRESENTATION SLIDES
@@ -56,6 +59,8 @@
 \begin{frame}
     % Add logos at the top of the slide
     \begin{center}
+        \includegraphics[height=1.cm]{imgs/logos/logo-instituto-ia.png}
+        \hspace{1.cm}
         \includegraphics[height=1.cm]{imgs/logos/lncc-logo.png}
         \hspace{1.cm}
         \includegraphics[height=1.cm]{imgs/logos/gmmsb-logo.png}
@@ -164,23 +169,23 @@
 \end{frame}
 
 
-\begin{frame}{Hit identification \hfill {\normalsize ML-based scoring functions\footnote{machine learning (\textit{machine learning}).}}}
-    \begin{columns}[c]
-        \column{.45\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.81\linewidth]{imgs/mlsf.pdf}
-            \caption{Scoring functions based on machine learning techniques (MLSFs).}
-        \end{figure}
+% \begin{frame}{Hit identification \hfill {\normalsize ML-based scoring functions\footnote{machine learning (\textit{machine learning}).}}}
+%     \begin{columns}[c]
+%         \column{.45\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.81\linewidth]{imgs/mlsf.pdf}
+%             \caption{Scoring functions based on machine learning techniques (MLSFs).}
+%         \end{figure}
 
-        \column{.45\textwidth}
-        \begin{itemize}
-            \item Seek to reproduce experimental binding affinity values.
-            \item Predictions based on a single pose of the receptor-ligand complex.
-            \item Use datasets with structural and affinity information in their construction.
-        \end{itemize}
-    \end{columns}
-\end{frame}
+%         \column{.45\textwidth}
+%         \begin{itemize}
+%             \item Seek to reproduce experimental binding affinity values.
+%             \item Predictions based on a single pose of the receptor-ligand complex.
+%             \item Use datasets with structural and affinity information in their construction.
+%         \end{itemize}
+%     \end{columns}
+% \end{frame}
 
 
 
@@ -189,7 +194,7 @@
         \column{.45\textwidth}
         \begin{itemize}
             \item Identify \textit{hits} with high binding affinity from large virtual compound libraries.
-            \item \alert{Fast and accurate scoring functions are essential.}
+                  % \item \alert{Fast and accurate scoring functions are essential.}
         \end{itemize}
 
         \column{.45\textwidth}
@@ -209,7 +214,7 @@
         \begin{itemize}
             \item Generate molecules with desirable properties without the need for pre-defined structures and fixed databases.
             \item Essentially multi-objective problem.
-            \item \alert{Fast and accurate scoring functions are essential.}
+                  % \item \alert{Fast and accurate scoring functions are essential.}
         \end{itemize}
 
         \column{.55\textwidth}
@@ -222,25 +227,25 @@
 \end{frame}
 
 
-\subsection{Objetivo geral}
+% \subsection{Objetivo geral}
 
 
-\begin{frame}{Thesis objectives}
-    \begin{block}{General objective}
-        Development of methodologies based on artificial intelligence (AI) for hit discovery, focusing on:
-        \begin{itemize}
-            \item[1.] prediction of receptor-ligand affinity via 3D convolutional neural networks;
-            \item[2.] \textit{de novo} generation of molecules using generative ML models and \textit{many}-objective evolutionary algorithms.
-        \end{itemize}
-    \end{block}
-\end{frame}
+% \begin{frame}{Thesis objectives}
+%     \begin{block}{General objective}
+%         Development of methodologies based on artificial intelligence (AI) for hit discovery, focusing on:
+%         \begin{itemize}
+%             \item[1.] prediction of receptor-ligand affinity via 3D convolutional neural networks;
+%             \item[2.] \textit{de novo} generation of molecules using generative ML models and \textit{many}-objective evolutionary algorithms.
+%         \end{itemize}
+%     \end{block}
+% \end{frame}
 
 
-\section{Fundamentação Teórica}
+% \section{Fundamentação Teórica}
 
-\begin{frame}  % transition page
-    \Large{\centerline{\textbf{Theoretical Foundation}}}
-\end{frame}
+% \begin{frame}  % transition page
+%     \Large{\centerline{\textbf{Theoretical Foundation}}}
+% \end{frame}
 
 \subsection{Machine Learning and Deep Learning}
 \begin{frame}{Machine Learning}
@@ -285,62 +290,62 @@
 \end{frame}
 
 
-\begin{frame}{Deep Learning}
-    \begin{columns}[c]
-        \column{.45\textwidth}
-        % \begin{itemize}
-        %     \item Aprendizado profundo refere-se a modelos de ML com múltiplas camadas de transformações:
-        % \end{itemize}
-        Deep learning refers to ML models with multiple layers of transformations:
-        \begin{equation*}
-            f_\theta(x) = f^{(L)}_{\theta_L} \circ f^{(L-1)}_{\theta_{L-1}} \circ \dots \circ f^{(1)}_{\theta_1}(x).
-        \end{equation*}
+% \begin{frame}{Deep Learning}
+%     \begin{columns}[c]
+%         \column{.45\textwidth}
+%         % \begin{itemize}
+%         %     \item Aprendizado profundo refere-se a modelos de ML com múltiplas camadas de transformações:
+%         % \end{itemize}
+%         Deep learning refers to ML models with multiple layers of transformations:
+%         \begin{equation*}
+%             f_\theta(x) = f^{(L)}_{\theta_L} \circ f^{(L-1)}_{\theta_{L-1}} \circ \dots \circ f^{(1)}_{\theta_1}(x).
+%         \end{equation*}
 
-        \vspace{1.5em}
+%         \vspace{1.5em}
 
-        Computation performed by a neuron:
-        \begin{equation*}
-            a = g(w^\top x + b),
-        \end{equation*}
-        where $g(\cdot)$ is a non-linear activation function, $w \in \mathbb{R}^m$ are the weights, $b \in \mathbb{R}$ is the bias, and $x \in \mathbb{R}^m$ is the input.
+%         Computation performed by a neuron:
+%         \begin{equation*}
+%             a = g(w^\top x + b),
+%         \end{equation*}
+%         where $g(\cdot)$ is a non-linear activation function, $w \in \mathbb{R}^m$ are the weights, $b \in \mathbb{R}$ is the bias, and $x \in \mathbb{R}^m$ is the input.
 
-        \column{.45\textwidth}
+%         \column{.45\textwidth}
 
-        \begin{figure}
-            \centering
-            \includegraphics[width=1.\linewidth]{imgs/mlp.pdf}
-            \caption{Architecture of an artificial neural network.}
-        \end{figure}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1.\linewidth]{imgs/mlp.pdf}
+%             \caption{Architecture of an artificial neural network.}
+%         \end{figure}
 
-    \end{columns}
-\end{frame}
+%     \end{columns}
+% \end{frame}
 
 
 
-\begin{frame}{Convolutional Neural Networks (CNNs)}
+% \begin{frame}{Convolutional Neural Networks (CNNs)}
 
-    \begin{columns}[t]
-        \column{.55\textwidth}
-        \begin{itemize}
-            \item Local receptive fields.
-            \item Weight sharing.
-            \item Learning hierarchical representations.
-        \end{itemize}
-        %
-        \begin{figure}
-            \centering
-            \includegraphics[width=1\linewidth]{imgs/convolution.pdf}
-            \caption{Convolution operation ($X \ast F = Z$).}
-        \end{figure}
+%     \begin{columns}[t]
+%         \column{.55\textwidth}
+%         \begin{itemize}
+%             \item Local receptive fields.
+%             \item Weight sharing.
+%             \item Learning hierarchical representations.
+%         \end{itemize}
+%         %
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1\linewidth]{imgs/convolution.pdf}
+%             \caption{Convolution operation ($X \ast F = Z$).}
+%         \end{figure}
 
-        \column{.35\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.6\linewidth]{imgs/hierarchical.png}
-            \caption{Hierarchical representations.}
-        \end{figure}
-    \end{columns}
-\end{frame}
+%         \column{.35\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.6\linewidth]{imgs/hierarchical.png}
+%             \caption{Hierarchical representations.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
 % TALVEZ COLOCAR ESTE SLIDE NOS EXTRAS
@@ -514,84 +519,84 @@
 % \end{frame}
 
 
-\section{Literature Review}
+% \section{Literature Review}
 
-% transtion page 
-\begin{frame}  % transition page
-    \Large{\centerline{\textbf{Literature Review}}}
-\end{frame}
-
-
-
-\begin{frame}{Literature Review: MLSFs \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}
-        \column{.45\textwidth}
-        MLSFs\footnote{machine learning-based scoring functions (MLSFs).} show \alert{superior performance} to classical functions in various benchmarks.
-
-        \column{.45\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=1.\linewidth]{imgs/performance-classical-vs-mlsf.jpg}
-            \caption{Comparative performance between classical functions (red) and MLSFs (green)~\cite{li2021machine}.}
-        \end{figure}
-    \end{columns}
-\end{frame}
+% % transtion page 
+% \begin{frame}  % transition page
+%     \Large{\centerline{\textbf{Literature Review}}}
+% \end{frame}
 
 
 
-\begin{frame}{Literature Review: MLSFs \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[t]
-        \column{.395\textwidth}
-        \begin{itemize}
-            \item Doubts about the learning of intermolecular interactions and the real \alert{generalization capacity} for new targets and ligands.
-            \item ``Out-of-domain'' datasets have emerged as a more challenging evaluation.
-            \item Strategies proposed to mitigate these biases: \textit{docking}, \textit{decoys}, and \textit{crossdocking}.
-        \end{itemize}
+% \begin{frame}{Literature Review: MLSFs \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}
+%         \column{.45\textwidth}
+%         MLSFs\footnote{machine learning-based scoring functions (MLSFs).} show \alert{superior performance} to classical functions in various benchmarks.
 
-        \column{.55\textwidth}
-        \vspace{-1em}
-        \begin{figure}
-            \centering
-            \includegraphics[width=0.5\linewidth]{imgs/protein-ligand-bias.png}
-            \vspace{-0.5em}
-            \caption{Ligand and protein bias~\cite{yang2020predicting}.}
-        \end{figure}
-        \vspace{-1em}
-        \begin{figure}
-            \centering
-            \includegraphics[width=0.6\linewidth]{imgs/pfam-cv.png}
-            \vspace{-0.5em}
-            \caption{Performance on out-of-domain sets~\cite{zhu2022assessment}.}
-        \end{figure}
-
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Literature Review: MLSFs \hfill {\footnotesize \alert{DockTDeep}}}
-
-    \begin{columns}
-        \column{.45\textwidth}
-        \begin{itemize}
-            \item CNNs are not \alert{rotation invariant}.
-            \item Two data augmentation approaches~\cite{da2025data}:
-                  \begin{itemize}
-                      \item 90° rotations (widely used);
-                      \item random rotations in the complex.
-                  \end{itemize}
-        \end{itemize}
-
-        \column{.45\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.85\linewidth]{imgs/rotation-types.png}
-            \caption{Different rotations applied to the protein-ligand complex.}
-        \end{figure}
-    \end{columns}
-\end{frame}
+%         \column{.45\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1.\linewidth]{imgs/performance-classical-vs-mlsf.jpg}
+%             \caption{Comparative performance between classical functions (red) and MLSFs (green)~\cite{li2021machine}.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
 
-\begin{frame}{Literature Review: \textit{de novo} design \hfill {\footnotesize \alert{DockTDesign}}}
+% \begin{frame}{Literature Review: MLSFs \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[t]
+%         \column{.395\textwidth}
+%         \begin{itemize}
+%             \item Doubts about the learning of intermolecular interactions and the real \alert{generalization capacity} for new targets and ligands.
+%             \item ``Out-of-domain'' datasets have emerged as a more challenging evaluation.
+%             \item Strategies proposed to mitigate these biases: \textit{docking}, \textit{decoys}, and \textit{crossdocking}.
+%         \end{itemize}
+
+%         \column{.55\textwidth}
+%         \vspace{-1em}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=0.5\linewidth]{imgs/protein-ligand-bias.png}
+%             \vspace{-0.5em}
+%             \caption{Ligand and protein bias~\cite{yang2020predicting}.}
+%         \end{figure}
+%         \vspace{-1em}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=0.6\linewidth]{imgs/pfam-cv.png}
+%             \vspace{-0.5em}
+%             \caption{Performance on out-of-domain sets~\cite{zhu2022assessment}.}
+%         \end{figure}
+
+%     \end{columns}
+% \end{frame}
+
+% \begin{frame}{Literature Review: MLSFs \hfill {\footnotesize \alert{DockTDeep}}}
+
+%     \begin{columns}
+%         \column{.45\textwidth}
+%         \begin{itemize}
+%             \item CNNs are not \alert{rotation invariant}.
+%             \item Two data augmentation approaches~\cite{da2025data}:
+%                   \begin{itemize}
+%                       \item 90° rotations (widely used);
+%                       \item random rotations in the complex.
+%                   \end{itemize}
+%         \end{itemize}
+
+%         \column{.45\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.85\linewidth]{imgs/rotation-types.png}
+%             \caption{Different rotations applied to the protein-ligand complex.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
+
+
+
+\begin{frame}{Literature review: \textit{de novo} design}
     \begin{columns}[c]
         \column{.45\textwidth}
         Three main approaches are employed for the \textit{de novo} design of molecules using generative models:
@@ -640,180 +645,180 @@
 
 
 
-\section{DockTDeep}
-% transtion page 
-\begin{frame}  % transition page
-    \Large{\centerline{\textbf{DockTDeep}}}
-\end{frame}
+% \section{DockTDeep}
+% % transtion page 
+% \begin{frame}  % transition page
+%     \Large{\centerline{\textbf{DockTDeep}}}
+% \end{frame}
 
 
 
-\subsection{Methodology}
+% \subsection{Methodology}
 
-\begin{frame}{Dataset: training and validation \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[t]
-        \column{.475\textwidth}
-        \begin{block}{PDBbind v.2020}
-            General set: \textbf{19.443} cpxs \\
-            Refined set: \textbf{5.316} cpxs \\
-            Coreset v.2013: \textbf{170} cpxs \\
-            Coreset v.2016: \textbf{261} cpxs \\
-        \end{block}
+% \begin{frame}{Dataset: training and validation \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[t]
+%         \column{.475\textwidth}
+%         \begin{block}{PDBbind v.2020}
+%             General set: \textbf{19.443} cpxs \\
+%             Refined set: \textbf{5.316} cpxs \\
+%             Coreset v.2013: \textbf{170} cpxs \\
+%             Coreset v.2016: \textbf{261} cpxs \\
+%         \end{block}
 
-        \column{.475\textwidth}
-        \begin{block}{Hyperparameter Search}
-            Using the refined set (random split)
-            \begin{itemize}
-                \item Training: \textbf{3.599} cpxs
-                \item Validation: \textbf{904} cpxs
-            \end{itemize}
-        \end{block}
+%         \column{.475\textwidth}
+%         \begin{block}{Hyperparameter Search}
+%             Using the refined set (random split)
+%             \begin{itemize}
+%                 \item Training: \textbf{3.599} cpxs
+%                 \item Validation: \textbf{904} cpxs
+%             \end{itemize}
+%         \end{block}
 
-        % \column{.32\textwidth}
+%         % \column{.32\textwidth}
 
-    \end{columns}
+%     \end{columns}
 
-    \begin{block}{Activity ranges}
-        The validation set data (\textbf{904} cpxs) were divided into activity ranges:
-        \item \textbf{Strong}: $\Delta \text{G}_{\text{bind}} \leq -9.981$ kcal/mol (45 nM).
-        \item \textbf{Moderate}: $-9.981 \; \text{kcal/mol} < \Delta \text{G}_{\text{bind}} \leq  -7.395$ kcal/mol (3.6 $\mu$M).
-        \item \textbf{Weak/inactive}: $\Delta \text{G}_{\text{bind}} > -7.395$ kcal/mol.
-    \end{block}
-\end{frame}
-
-
-\begin{frame}{Dataset: external test \hfill {\footnotesize \alert{DockTDeep}}}
-    Performance on test sets was evaluated using the \textit{general set}, in different splits:
-    \begin{itemize}
-        \item Random (15.699 train/3.404 test).
-        \item Temporal (13.317 train/1.786 test).
-        \item \textit{Coreset} v.2013 (18.933 train/170 test).
-        \item \textit{Coreset} v.2016  (18.842 train/261 test).
-              \vspace{1 em}
-        \item Pfam-CV protocol (\textit{general set}):
-              \begin{itemize}
-                  \item Evaluation of out-of-domain generalization.
-                  \item Grouping by structural similarity of the binding site (Pfam database).
-                  \item Repeated cross-validation 30x.
-                  \item Proportion: $\frac{2}{3}$ training and $\frac{1}{3}$ test.
-              \end{itemize}
-    \end{itemize}
-
-\end{frame}
+%     \begin{block}{Activity ranges}
+%         The validation set data (\textbf{904} cpxs) were divided into activity ranges:
+%         \item \textbf{Strong}: $\Delta \text{G}_{\text{bind}} \leq -9.981$ kcal/mol (45 nM).
+%         \item \textbf{Moderate}: $-9.981 \; \text{kcal/mol} < \Delta \text{G}_{\text{bind}} \leq  -7.395$ kcal/mol (3.6 $\mu$M).
+%         \item \textbf{Weak/inactive}: $\Delta \text{G}_{\text{bind}} > -7.395$ kcal/mol.
+%     \end{block}
+% \end{frame}
 
 
-\begin{frame}{Molecular representation \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.575\textwidth}
-        \begin{itemize}
-            \item Voxel grid 24~{\AA}$^3$ and discretization 1~{\AA}.
-            \item Channels for elements: C, H, O, N, S, and X (others).
-            \item 21 channels: 6 protein, 6 ligand, 6 cpx, and 3 total volume.
-            \item Representations generated with DockTGrid~\cite{dadocktgrid}.
-            \item GitHub: {\color{blue} \href{https://github.com/gmmsb-lncc/docktgrid}{github.com/gmmsb-lncc/docktgrid}}.
-        \end{itemize}
+% \begin{frame}{Dataset: external test \hfill {\footnotesize \alert{DockTDeep}}}
+%     Performance on test sets was evaluated using the \textit{general set}, in different splits:
+%     \begin{itemize}
+%         \item Random (15.699 train/3.404 test).
+%         \item Temporal (13.317 train/1.786 test).
+%         \item \textit{Coreset} v.2013 (18.933 train/170 test).
+%         \item \textit{Coreset} v.2016  (18.842 train/261 test).
+%               \vspace{1 em}
+%         \item Pfam-CV protocol (\textit{general set}):
+%               \begin{itemize}
+%                   \item Evaluation of out-of-domain generalization.
+%                   \item Grouping by structural similarity of the binding site (Pfam database).
+%                   \item Repeated cross-validation 30x.
+%                   \item Proportion: $\frac{2}{3}$ training and $\frac{1}{3}$ test.
+%               \end{itemize}
+%     \end{itemize}
 
-        \column{.375\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=0.9\linewidth]{imgs/cpx-representation.png}
-            \caption{Illustrative example of the voxel representation used.}
-        \end{figure}
-
-    \end{columns}
-\end{frame}
+% \end{frame}
 
 
-\begin{frame}{Neural network architecture \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.4\textwidth}
-        \begin{itemize}
-            \item 3D CNN with three convolutional layers.
-            \item One dense layer of 1000 neurons.
-            \item Linear output layer (regression).
-            \item $\sim$2M trainable parameters.
-            \item Learning rate: $8,74\times10^{-4}$
-            \item Training epochs: 1500.
-            \item GitHub: {\color{blue} \href{https://github.com/gmmsb-lncc/docktdeep}{github.com/gmmsb-lncc/docktdeep}} and preprint~\cite{da2025data}.
-        \end{itemize}
+% \begin{frame}{Molecular representation \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.575\textwidth}
+%         \begin{itemize}
+%             \item Voxel grid 24~{\AA}$^3$ and discretization 1~{\AA}.
+%             \item Channels for elements: C, H, O, N, S, and X (others).
+%             \item 21 channels: 6 protein, 6 ligand, 6 cpx, and 3 total volume.
+%             \item Representations generated with DockTGrid~\cite{dadocktgrid}.
+%             \item GitHub: {\color{blue} \href{https://github.com/gmmsb-lncc/docktgrid}{github.com/gmmsb-lncc/docktgrid}}.
+%         \end{itemize}
 
-        \column{.55\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=1.\linewidth]{imgs/arquitetura-cnn.png}
-            \caption{CNN network architecture.}
-        \end{figure}
-    \end{columns}
-\end{frame}
+%         \column{.375\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=0.9\linewidth]{imgs/cpx-representation.png}
+%             \caption{Illustrative example of the voxel representation used.}
+%         \end{figure}
 
-
-\begin{frame}{Data augmentation strategies \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.475\textwidth}
-        Two data augmentation strategies were compared:
-        \begin{itemize}
-            \item 90° rotations;
-            \item random rotations in the complex (applied at each new epoch).
-        \end{itemize}
-
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.85\linewidth]{imgs/rotation-types.png}
-            \caption{Different rotations applied to the protein-ligand complex.}
-        \end{figure}
-
-    \end{columns}
-\end{frame}
+%     \end{columns}
+% \end{frame}
 
 
+% \begin{frame}{Neural network architecture \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.4\textwidth}
+%         \begin{itemize}
+%             \item 3D CNN with three convolutional layers.
+%             \item One dense layer of 1000 neurons.
+%             \item Linear output layer (regression).
+%             \item $\sim$2M trainable parameters.
+%             \item Learning rate: $8,74\times10^{-4}$
+%             \item Training epochs: 1500.
+%             \item GitHub: {\color{blue} \href{https://github.com/gmmsb-lncc/docktdeep}{github.com/gmmsb-lncc/docktdeep}} and preprint~\cite{da2025data}.
+%         \end{itemize}
+
+%         \column{.55\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1.\linewidth]{imgs/arquitetura-cnn.png}
+%             \caption{CNN network architecture.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
-\begin{frame}{Molecular dropout \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.475\textwidth}
-        \begin{itemize}
-            \item Regularization technique that avoids overfitting by randomly removing protein \textit{or} ligand during training and setting affinity to zero.
-            \item Each complex has chance $p = 0{,}06$ of undergoing dropout per epoch.
-            \item Seeks to force the model to learn relevant interactions, not depending on a single component.
-        \end{itemize}
+% \begin{frame}{Data augmentation strategies \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.475\textwidth}
+%         Two data augmentation strategies were compared:
+%         \begin{itemize}
+%             \item 90° rotations;
+%             \item random rotations in the complex (applied at each new epoch).
+%         \end{itemize}
 
-        \column{.475\textwidth}
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.85\linewidth]{imgs/rotation-types.png}
+%             \caption{Different rotations applied to the protein-ligand complex.}
+%         \end{figure}
 
-        \centering
-        \begin{tikzpicture}[node distance=1.5cm, auto, scale=0.5, every node/.style={transform shape}]
-            % Estilos
-            \tikzset{
-            input/.style = {rectangle, rounded corners, draw=black, fill=red!10, text width=4cm, align=center, inner sep=8pt},
-            decision/.style = {diamond, draw=black, fill=yellow!30, aspect=2, inner sep=1pt, text width=2.5cm, align=center},
-            output/.style = {rectangle, draw=black, fill=green!15, text width=4cm, align=center, inner sep=6pt},
-            arrow/.style = {-{Stealth[length=5pt]}, thick, shorten >=1pt, shorten <=1pt}
-            }
-
-            % Nós
-            \node [input] (input) {Protein-Ligand Complex};
-            \node [decision, below=of input] (dropout) {Molecular Dropout? \\ (prob. $p$)};
-            \node [decision, below left=1cm and 1.2cm of dropout] (choose) {Protein or Ligand? \\ (50/50)};
-            \node [output, below=of choose] (drop) {Train with \\ only one entity};
-            \node [output, right=2.8cm of drop] (keep) {Train with \\ complete complex};
-
-            % Setas: uso explícito de anchors nas pontas dos losangos
-            \draw [arrow] (input) -- (dropout.north);
-
-            % Saída esquerda do losango 'dropout' -> entra pela ponta superior de 'choose'
-            \draw [arrow] (dropout.west) to[out=-150,in=60] node[left, xshift=-1mm] {Yes} (choose.north);
-
-            % 'choose' para 'drop'
-            \draw [arrow] (choose.south) -- (drop.north);
-
-            % Saída direita do losango 'dropout' -> caminho em ângulo até 'keep'
-            \draw [arrow] (dropout.east) to[out=-20,in=90] node[midway,right] {No} (keep.north);
-        \end{tikzpicture}
+%     \end{columns}
+% \end{frame}
 
 
 
-    \end{columns}
-\end{frame}
+
+% \begin{frame}{Molecular dropout \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.475\textwidth}
+%         \begin{itemize}
+%             \item Regularization technique that avoids overfitting by randomly removing protein \textit{or} ligand during training and setting affinity to zero.
+%             \item Each complex has chance $p = 0{,}06$ of undergoing dropout per epoch.
+%             \item Seeks to force the model to learn relevant interactions, not depending on a single component.
+%         \end{itemize}
+
+%         \column{.475\textwidth}
+
+%         \centering
+%         \begin{tikzpicture}[node distance=1.5cm, auto, scale=0.5, every node/.style={transform shape}]
+%             % Estilos
+%             \tikzset{
+%             input/.style = {rectangle, rounded corners, draw=black, fill=red!10, text width=4cm, align=center, inner sep=8pt},
+%             decision/.style = {diamond, draw=black, fill=yellow!30, aspect=2, inner sep=1pt, text width=2.5cm, align=center},
+%             output/.style = {rectangle, draw=black, fill=green!15, text width=4cm, align=center, inner sep=6pt},
+%             arrow/.style = {-{Stealth[length=5pt]}, thick, shorten >=1pt, shorten <=1pt}
+%             }
+
+%             % Nós
+%             \node [input] (input) {Protein-Ligand Complex};
+%             \node [decision, below=of input] (dropout) {Molecular Dropout? \\ (prob. $p$)};
+%             \node [decision, below left=1cm and 1.2cm of dropout] (choose) {Protein or Ligand? \\ (50/50)};
+%             \node [output, below=of choose] (drop) {Train with \\ only one entity};
+%             \node [output, right=2.8cm of drop] (keep) {Train with \\ complete complex};
+
+%             % Setas: uso explícito de anchors nas pontas dos losangos
+%             \draw [arrow] (input) -- (dropout.north);
+
+%             % Saída esquerda do losango 'dropout' -> entra pela ponta superior de 'choose'
+%             \draw [arrow] (dropout.west) to[out=-150,in=60] node[left, xshift=-1mm] {Yes} (choose.north);
+
+%             % 'choose' para 'drop'
+%             \draw [arrow] (choose.south) -- (drop.north);
+
+%             % Saída direita do losango 'dropout' -> caminho em ângulo até 'keep'
+%             \draw [arrow] (dropout.east) to[out=-20,in=90] node[midway,right] {No} (keep.north);
+%         \end{tikzpicture}
+
+
+
+%     \end{columns}
+% \end{frame}
 
 
 % \begin{frame}{Experimentos de atracamento molecular \hfill {\footnotesize \alert{DockTDeep/DockTDesign}}}
@@ -884,96 +889,96 @@
 %     \end{columns}
 % \end{frame}
 
-\subsection{Results}
+% \subsection{Results}
 
-% transition frame (Resultados)
-\begin{frame}  % transition page
-    \Large{\centerline{\textbf{Results}}}
-\end{frame}
+% % transition frame (Resultados)
+% \begin{frame}  % transition page
+%     \Large{\centerline{\textbf{Results}}}
+% \end{frame}
 
-\begin{frame}{Results: rotational variance \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.475\textwidth}
+% \begin{frame}{Results: rotational variance \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.475\textwidth}
 
-        \begin{figure}
-            \centering
-            \includegraphics[width=1\linewidth]{imgs/results/rotation-performance.pdf}
-            \caption{Comparison of predictive performance using RMSE (lower is better) and Rp (higher is better) metrics for each strategy.}
-        \end{figure}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1\linewidth]{imgs/results/rotation-performance.pdf}
+%             \caption{Comparison of predictive performance using RMSE (lower is better) and Rp (higher is better) metrics for each strategy.}
+%         \end{figure}
 
-        \column{.475\textwidth}
+%         \column{.475\textwidth}
 
-        \begin{figure}
-            \centering
-            \includegraphics[width=1\linewidth]{imgs/results/mean-variances.pdf}
-            \caption{Mean standard deviation (SD) and range of predictions (kcal/mol) for the validation set (N=904).}
-        \end{figure}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1\linewidth]{imgs/results/mean-variances.pdf}
+%             \caption{Mean standard deviation (SD) and range of predictions (kcal/mol) for the validation set (N=904).}
+%         \end{figure}
 
-        % \begin{figure}
-        %     \centering
-        %     \includegraphics[width=0.7\linewidth]{imgs/results/rotation-variance.pdf}
-        %     \caption{Distribution of affinity values.}
-        % \end{figure}
+%         % \begin{figure}
+%         %     \centering
+%         %     \includegraphics[width=0.7\linewidth]{imgs/results/rotation-variance.pdf}
+%         %     \caption{Distribution of affinity values.}
+%         % \end{figure}
 
-    \end{columns}
-\end{frame}
-
-
-
-\begin{frame}{Results: protein/ligand bias \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\linewidth]{imgs/results/ligand-bias.pdf}
-        \caption{Comparison of Rp values between three models: base model (B), using random rotation (B + RR), and using random rotation and molecular dropout (B + RR + MD), in addition to the k-NN model based only on the ligand. Evaluation was performed in three distinct scenarios: complete protein-ligand complex, ligand only, and protein only; keeping affinity labels unchanged.}
-    \end{figure}
-\end{frame}
+%     \end{columns}
+% \end{frame}
 
 
-\begin{frame}{Results: protein/ligand bias \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.495\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.8\textwidth]{imgs/results/masking.png}
-            \caption{Visualization of removed protein atoms (highlighted in red), which are up to 5~\AA{} from the ligand.}
-        \end{figure}
 
-        \column{.495\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.65\textwidth]{imgs/results/masking-rmse.pdf}
-            \caption{RMSE before (blue) and after atom removal (red).}
-        \end{figure}
-    \end{columns}
-\end{frame}
+% \begin{frame}{Results: protein/ligand bias \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=0.7\linewidth]{imgs/results/ligand-bias.pdf}
+%         \caption{Comparison of Rp values between three models: base model (B), using random rotation (B + RR), and using random rotation and molecular dropout (B + RR + MD), in addition to the k-NN model based only on the ligand. Evaluation was performed in three distinct scenarios: complete protein-ligand complex, ligand only, and protein only; keeping affinity labels unchanged.}
+%     \end{figure}
+% \end{frame}
 
 
-\begin{frame}{Results: learning of interactions \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.6\textwidth]{imgs/results/pose-sensitivity.pdf}
-        \caption{Scatter plot comparing affinity predictions for crystallographic structures (reference) with the percentage variation in predictions for the worst poses obtained in the redocking experiment.}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Results: protein/ligand bias \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.495\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.8\textwidth]{imgs/results/masking.png}
+%             \caption{Visualization of removed protein atoms (highlighted in red), which are up to 5~\AA{} from the ligand.}
+%         \end{figure}
+
+%         \column{.495\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.65\textwidth]{imgs/results/masking-rmse.pdf}
+%             \caption{RMSE before (blue) and after atom removal (red).}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
-\begin{frame}{Results: activity ranges \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=0.9\textwidth]{imgs/results/correlations-in-range-2.pdf}
-            \caption{Comparison of Rp and Rs values for the entire validation set and affinity ranges.}
-        \end{figure}
+% \begin{frame}{Results: learning of interactions \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=0.6\textwidth]{imgs/results/pose-sensitivity.pdf}
+%         \caption{Scatter plot comparing affinity predictions for crystallographic structures (reference) with the percentage variation in predictions for the worst poses obtained in the redocking experiment.}
+%     \end{figure}
+% \end{frame}
 
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.85\textwidth]{imgs/results/confusion-matrix.pdf}
-            \caption{Confusion matrix for the three affinity classes: strong, moderate, and weak/inactive.}
-        \end{figure}
-    \end{columns}
-\end{frame}
+
+% \begin{frame}{Results: activity ranges \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=0.9\textwidth]{imgs/results/correlations-in-range-2.pdf}
+%             \caption{Comparison of Rp and Rs values for the entire validation set and affinity ranges.}
+%         \end{figure}
+
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.85\textwidth]{imgs/results/confusion-matrix.pdf}
+%             \caption{Confusion matrix for the three affinity classes: strong, moderate, and weak/inactive.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
 % \begin{frame}{Resultados: falsos negativos \hfill {\footnotesize \alert{DockTDeep}}}
@@ -1029,75 +1034,75 @@
 % \end{frame}
 
 
-\begin{frame}{Results: evaluation on external sets \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.495\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=1\textwidth]{imgs/results/fig5a_external_performance.pdf}
-            \caption{Comparison of RMSE (lower is better) and Rp (higher is better) values in all evaluated test sets.}
-        \end{figure}
+% \begin{frame}{Results: evaluation on external sets \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.495\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1\textwidth]{imgs/results/fig5a_external_performance.pdf}
+%             \caption{Comparison of RMSE (lower is better) and Rp (higher is better) values in all evaluated test sets.}
+%         \end{figure}
 
-        \column{.495\textwidth}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=1\textwidth]{imgs/results/ifp-similarity.pdf}
-            \caption{Density plot of maximum IFP similarity between sets.}
-        \end{figure}
+%         \column{.495\textwidth}
+%         \begin{figure}[ht!]
+%             \centering
+%             \includegraphics[width=1\textwidth]{imgs/results/ifp-similarity.pdf}
+%             \caption{Density plot of maximum IFP similarity between sets.}
+%         \end{figure}
 
-    \end{columns}
-\end{frame}
-
-
-
-\begin{frame}{Results: PDBbind coresets & Pfam-CV \hfill {\footnotesize \alert{DockTDeep}}}
-    \begin{columns}[c]
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.6\textwidth]{imgs/results/fig5b_coreset16_comparison_up.pdf}
-            \caption{Rp in PDBbind v. (a) 2013 and (b) 2016.}
-        \end{figure}
-
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=.7\textwidth]{imgs/results/fig5c_pfam_external_performance.pdf}
-            \caption{Rp in the Pfam-CV split scheme.}
-        \end{figure}
-    \end{columns}
-
-\end{frame}
+%     \end{columns}
+% \end{frame}
 
 
 
-\begin{frame}{Conclusions \hfill {\footnotesize \alert{DockTDeep}}}
+% \begin{frame}{Results: PDBbind coresets & Pfam-CV \hfill {\footnotesize \alert{DockTDeep}}}
+%     \begin{columns}[c]
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.6\textwidth]{imgs/results/fig5b_coreset16_comparison_up.pdf}
+%             \caption{Rp in PDBbind v. (a) 2013 and (b) 2016.}
+%         \end{figure}
 
-    \begin{itemize}
-        \item \textbf{DockTDeep}: simple 3D CNN model, trained in a systematic and grounded manner, shows robust generalization and is competitive with the state of the art.
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=.7\textwidth]{imgs/results/fig5c_pfam_external_performance.pdf}
+%             \caption{Rp in the Pfam-CV split scheme.}
+%         \end{figure}
+%     \end{columns}
 
-        \item Random rotation surpasses 90° rotation as a data augmentation technique, improving stability and performance.
-
-        \item Molecular dropout reduces protein/ligand bias, favoring learning of significant interactions.
-
-        \item Model is more robust in \textbf{categorization} tasks (strong/moderate/weak) than in fine ranking.
-
-        \item Performance drops in rigorous scenarios (Pfam-CV), highlighting limitations imposed by the diversity of training and test data.
-    \end{itemize}
-
-\end{frame}
-
-
-
-%%%% DOCKTDESIGN TRANSITION %%%%
-
+% \end{frame}
 
 
-\section{DockTDesign}
-% transtion page 
-\begin{frame}  % transition page
-    \Large{\centerline{\textbf{DockTDesign}}}
-\end{frame}
+
+% \begin{frame}{Conclusions \hfill {\footnotesize \alert{DockTDeep}}}
+
+%     \begin{itemize}
+%         \item \textbf{DockTDeep}: simple 3D CNN model, trained in a systematic and grounded manner, shows robust generalization and is competitive with the state of the art.
+
+%         \item Random rotation surpasses 90° rotation as a data augmentation technique, improving stability and performance.
+
+%         \item Molecular dropout reduces protein/ligand bias, favoring learning of significant interactions.
+
+%         \item Model is more robust in \textbf{categorization} tasks (strong/moderate/weak) than in fine ranking.
+
+%         \item Performance drops in rigorous scenarios (Pfam-CV), highlighting limitations imposed by the diversity of training and test data.
+%     \end{itemize}
+
+% \end{frame}
+
+
+
+% %%%% DOCKTDESIGN TRANSITION %%%%
+
+
+
+% \section{DockTDesign}
+% % transtion page 
+% \begin{frame}  % transition page
+%     \Large{\centerline{\textbf{DockTDesign}}}
+% \end{frame}
 
 
 
@@ -1518,47 +1523,48 @@
     \begin{itemize}
         \item Integration of \textbf{HierVAE} with \textit{many}-objective evolutionary algorithms presents itself as an effective and flexible approach.
 
-        \item NSGA-III outperforms NSGA-II and GA with aggregation in convergence and coverage of the Pareto front.
+              % \item NSGA-III outperforms NSGA-II and GA with aggregation in convergence and coverage of the Pareto front.
 
         \item NSGA-II generates molecules more diverse among themselves; NSGA-III explores innovative regions of chemical space. Adjustments in hyperparameters can improve both.
 
-        \item Predicted affinity and selectivity were optimized without dependence on structural similarity.
+              % \item Predicted affinity and selectivity were optimized without dependence on structural similarity.
 
-        \item Treating SA and Cx as \textbf{constraints} (not objectives) improves predicted activity and selectivity.
-
-    \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{General conclusions}
-    \begin{itemize}
-        \item \textbf{DockTDeep} is a scoring function that is easy to train, robust to ligand/protein biases and rotational variance, and competitive with the state of the art in various evaluation scenarios.
+              % \item Treating SA and Cx as \textbf{constraints} (not objectives) improves predicted activity and selectivity.
         \item \textbf{DockTDesign}, together with \textbf{DockThor} and \textbf{DockTDeep}, presents itself as a promising and flexible platform for hit identification, capable of suggesting to the specialist a set of molecules that simultaneously meet multiple objectives.
-    \end{itemize}
-\end{frame}
 
-
-
-\begin{frame}{Perspectives}
-
-    \begin{itemize}
-        \item Incorporate \textbf{DockTDeep} into the DockThor portal (\url{https://dockthor.lncc.br}).
-
-        \item Include multiple conformations (docking/molecular dynamics) to model \textbf{dynamic} aspects of binding.
-
-        \item Evaluate \textbf{DockTDeep} in \textit{lead} optimization tasks with experimental data and compare with FEP.
-
-        \item Use \textbf{metamodels} to reduce computational cost of docking in optimization.
-
-        \item Expand the approach to other therapeutic targets (including the multi-target scenario).
-
-        \item Collaborate with experimental groups to define realistic objectives and validate generated molecules.
-
-        \item Develop a \textbf{web portal} for the \textit{DockTDesign} platform, integrated with the Santos Dumont supercomputer.
     \end{itemize}
 
 \end{frame}
+
+
+% \begin{frame}{General conclusions}
+%     \begin{itemize}
+%         \item \textbf{DockTDeep} is a scoring function that is easy to train, robust to ligand/protein biases and rotational variance, and competitive with the state of the art in various evaluation scenarios.
+%         \item \textbf{DockTDesign}, together with \textbf{DockThor} and \textbf{DockTDeep}, presents itself as a promising and flexible platform for hit identification, capable of suggesting to the specialist a set of molecules that simultaneously meet multiple objectives.
+%     \end{itemize}
+% \end{frame}
+
+
+
+% \begin{frame}{Perspectives}
+
+%     \begin{itemize}
+%         \item Incorporate \textbf{DockTDeep} into the DockThor portal (\url{https://dockthor.lncc.br}).
+
+%         \item Include multiple conformations (docking/molecular dynamics) to model \textbf{dynamic} aspects of binding.
+
+%         \item Evaluate \textbf{DockTDeep} in \textit{lead} optimization tasks with experimental data and compare with FEP.
+
+%         \item Use \textbf{metamodels} to reduce computational cost of docking in optimization.
+
+%         \item Expand the approach to other therapeutic targets (including the multi-target scenario).
+
+%         \item Collaborate with experimental groups to define realistic objectives and validate generated molecules.
+
+%         \item Develop a \textbf{web portal} for the \textit{DockTDesign} platform, integrated with the Santos Dumont supercomputer.
+%     \end{itemize}
+
+% \end{frame}
 
 %------------------------------------------------
 
