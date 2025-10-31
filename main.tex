@@ -22,6 +22,8 @@
 
 
 
+
+
 \usepackage[english]{babel}  
 \usepackage[utf8]{inputenc}  
 \usepackage[T1]{fontenc}
@@ -93,7 +95,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction and Motivation}
+\section{Introduction}
 
 
 \begin{frame}{Motivation}
@@ -189,30 +191,30 @@
 
 
 
-\begin{frame}{Hit identification \hfill Virtual screening}
-    \begin{columns}[c]
-        \column{.45\textwidth}
-        \begin{itemize}
-            \item Identify \textit{hits} with high binding affinity from large virtual compound libraries.
-                  % \item \alert{Fast and accurate scoring functions are essential.}
-        \end{itemize}
+% \begin{frame}{Hit identification \hfill Virtual screening}
+%     \begin{columns}[c]
+%         \column{.45\textwidth}
+%         \begin{itemize}
+%             \item Identify \textit{hits} with high binding affinity from large virtual compound libraries.
+%                   % \item \alert{Fast and accurate scoring functions are essential.}
+%         \end{itemize}
 
-        \column{.45\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=0.95\linewidth]{imgs/virtual-screening.png}
-            % \caption{Virtual screening of compounds.}
-        \end{figure}
-    \end{columns}
-\end{frame}
+%         \column{.45\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=0.95\linewidth]{imgs/virtual-screening.png}
+%             % \caption{Virtual screening of compounds.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
 
-\begin{frame}{Hit identification \hfill \textit{De novo} molecule design}
+\begin{frame}{Hit identification \hfill \textit{de novo} molecule design}
     \begin{columns}[c]
         \column{.35\textwidth}
         \begin{itemize}
-            \item Generate molecules with desirable properties without the need for pre-defined structures and fixed databases.
+            \item Generate molecules with desirable properties without the need for pre-defined structures.
             \item Essentially multi-objective problem.
                   % \item \alert{Fast and accurate scoring functions are essential.}
         \end{itemize}
@@ -247,47 +249,47 @@
 %     \Large{\centerline{\textbf{Theoretical Foundation}}}
 % \end{frame}
 
-\subsection{Machine Learning and Deep Learning}
-\begin{frame}{Machine Learning}
-    Machine learning consists of:
-    \begin{itemize}
-        \item[1.] obtaining a representative dataset of the problem of interest;
-        \item[2.] constructing a statistical model based on the dataset (training).
-    \end{itemize}
+\subsection{Generative modelling: variational autoencoders}
+% \begin{frame}{Machine learning}
+%     % Machine learning consists of:
+%     % \begin{itemize}
+%     %     \item[1.] obtaining a representative dataset of the problem of interest;
+%     %     \item[2.] constructing a statistical model based on the dataset (training).
+%     % \end{itemize}
 
-    \begin{columns}[c]
-        \column{.45\textwidth}
-        % Paradigmas de aprendizado:
-        % \begin{itemize}
-        %     \item supervisionado;
-        %     \item não~supervisionado;
-        %     \item por reforço.
-        % \end{itemize}
-        {\small
-            \textbf{Supervised learning}:
-            \begin{align*}
-                \mathcal{D} & = \{(x_i, y_i)\}_{i=1}^n,                                                 \\
-                f^*         & = \arg\min_{f \in \mathcal{F}} \; \mathbb{E}_{(x,y)\sim P}[\ell(f(x),y)].
-            \end{align*}
+%     \begin{columns}[c]
+%         \column{.45\textwidth}
+%         % Paradigmas de aprendizado:
+%         % \begin{itemize}
+%         %     \item supervisionado;
+%         %     \item não~supervisionado;
+%         %     \item por reforço.
+%         % \end{itemize}
+%         {\small
+%             \textbf{Supervised learning}:
+%             \begin{align*}
+%                 \mathcal{D} & = \{(x_i, y_i)\}_{i=1}^n,                                                 \\
+%                 f^*         & = \arg\min_{f \in \mathcal{F}} \; \mathbb{E}_{(x,y)\sim P}[\ell(f(x),y)].
+%             \end{align*}
 
-            \textbf{Unsupervised learning}:
-            \begin{align*}
-                \mathcal{D}' & = \{x_i\}_{i=1}^n,                                                  \\
-                h^*          & = \arg\min_{h \in \mathcal{H}} \; \mathbb{E}_{x\sim P}[\ell(h(x))].
-            \end{align*}
-        }
+%             \textbf{Unsupervised learning}:
+%             \begin{align*}
+%                 \mathcal{D}' & = \{x_i\}_{i=1}^n,                                                  \\
+%                 h^*          & = \arg\min_{h \in \mathcal{H}} \; \mathbb{E}_{x\sim P}[\ell(h(x))].
+%             \end{align*}
+%         }
 
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=1\textwidth]{imgs/leaning-tasks.pdf}
-            \caption{Learning tasks.}
-        \end{figure}
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1\textwidth]{imgs/leaning-tasks.pdf}
+%             \caption{Learning tasks.}
+%         \end{figure}
 
 
 
-    \end{columns}
-\end{frame}
+%     \end{columns}
+% \end{frame}
 
 
 % \begin{frame}{Deep Learning}
@@ -373,19 +375,19 @@
 %     \end{columns}
 % \end{frame}
 
-\begin{frame}{Variational Autoencoders (VAEs)}
-    \begin{itemize}
-        % \item Modelos generativos visam capturar a estrutura subjacente dos dados em um espaço latente.
-        \item VAEs learn a \alert{continuous} and \alert{regular} latent space by modeling latent variables as probabilistic distributions.
-        \item Latent space acquires ``semantics'', favoring interpretation, manipulation, and robustness.
-    \end{itemize}
-    \vspace{-1em}
+\begin{frame}{Variational autoencoders (VAEs)}
+    % \begin{itemize}
+    %     % \item Modelos generativos visam capturar a estrutura subjacente dos dados em um espaço latente.
+    %     \item VAEs learn a \alert{continuous} and \alert{regular} latent space by modeling latent variables as probabilistic distributions.
+    %     \item Latent space acquires ``semantics'', favoring interpretation, manipulation, and robustness.
+    % \end{itemize}
+    % \vspace{-1em}
     \begin{columns}[t]
         \column{.55\textwidth}
         \begin{figure}
             \centering
             \includegraphics[width=0.8\linewidth]{imgs/vae.pdf}
-            \caption{Variational Autoencoder (VAE).}
+            \caption{Variational autoencoder (VAE).}
         \end{figure}
 
         \column{.475\textwidth}
@@ -402,7 +404,7 @@
 
 
 % \subsubsection{Autoencoders Variacionais}
-\subsection{Multi and \textit{Many}-Objective Optimization}
+\subsection{Multi and \textit{many}-objective optimization}
 % \subsubsection{Além de três objetivos: otimização \textit{many}-objetivo}
 
 % \begin{frame}{Otimização mono-objetivo}
@@ -443,66 +445,73 @@
 
         \vspace{1em}
         % A maneira mais intuitiva de resolver um problema multi-objetivo é convertê-lo em um problema mono-objetivo:
-        \begin{block}{Intuitive resolution}
-            Convert to single-objective problem via weighted sum:
-            \vspace{-.85em}
-            \begin{align*}
-                \text{min } & \sum_{i=1}^k w_i f_i(x), \quad \sum_{i=1}^k w_i = 1, \; w_i \geq 0.
-            \end{align*}
-        \end{block}
+        % \begin{block}{Intuitive resolution}
+        %     Convert to single-objective problem via weighted sum:
+        %     \vspace{-.85em}
+        %     \begin{align*}
+        %         \text{min } & \sum_{i=1}^k w_i f_i(x), \quad \sum_{i=1}^k w_i = 1, \; w_i \geq 0.
+        %     \end{align*}
+        % \end{block}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.875\linewidth]{imgs/objective-space.pdf}
+            \caption{Different spaces in multi-objective optimization.}
+        \end{figure}
 
 
 
         \column{.4\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=1\linewidth]{imgs/objective-space.pdf}
-            \caption{Different spaces in multi-objective optimization.}
-        \end{figure}
-
-        Objective space: $F(x) = z = (z_1, z_2,\dots,z_k)^T$, where $z_i = f_i$.
-
-    \end{columns}
-\end{frame}
-
-
-\begin{frame}{Dominance and Pareto Front}
-    \begin{columns}[c]
-        \column{.45\textwidth}
-        % A dominância é uma relação entre soluções em um espaço de objetivos. Uma solução $x_1$ é dita dominar outra solução $x_2$ se:
-        We say that $x_1$ dominates $x_2$ if:
-        \begin{itemize}
-            \item $f_i(x_1) \leq f_i(x_2)$ for all $i$ (i.e., $x_1$ is better or equal in all objectives)
-            \item $f_j(x_1) < f_j(x_2)$ for at least one $j$ (i.e., $x_1$ is strictly better in at least one objective)
-        \end{itemize}
-        \vspace{1em}
-        In multi-objective optimization, we seek solutions as close as possible to the Pareto front (\alert{convergence}) and as diverse as possible along it (\alert{diversity}).
-
-        \column{.45\textwidth}
+        \textbf{Pareto dominance:} \(\mathbf{x} \succ \mathbf{y}\) if \(f_i(\mathbf{x}) \leq f_i(\mathbf{y})\) for all \(i\) and \(f_j(\mathbf{x}) < f_j(\mathbf{y})\) for some \(j\).
         \begin{figure}
             \centering
             \includegraphics[width=1.0\linewidth]{imgs/pareto-front.pdf}
-            \caption{Pareto Front.}
+            \caption{Dominance and Pareto front.}
         \end{figure}
+
+
+        % Objective space: $F(x) = z = (z_1, z_2,\dots,z_k)^T$, where $z_i = f_i$.
+
     \end{columns}
 \end{frame}
 
 
+% \begin{frame}{Dominance and Pareto front}
+%     \begin{columns}[c]
+%         \column{.45\textwidth}
+%         % A dominância é uma relação entre soluções em um espaço de objetivos. Uma solução $x_1$ é dita dominar outra solução $x_2$ se:
+%         We say that $x_1$ dominates $x_2$ if:
+%         \begin{itemize}
+%             \item $f_i(x_1) \leq f_i(x_2)$ for all $i$ (i.e., $x_1$ is better or equal in all objectives)
+%             \item $f_j(x_1) < f_j(x_2)$ for at least one $j$ (i.e., $x_1$ is strictly better in at least one objective)
+%         \end{itemize}
+%         \vspace{1em}
+%         In multi-objective optimization, we seek solutions as close as possible to the Pareto front (\alert{convergence}) and as diverse as possible along it (\alert{diversity}).
 
-\begin{frame}{\textit{Many}-objective optimization}
-    Problems with optimization with $k > 3$ objectives are called \textit{many}-objective and present additional challenges:
-    \begin{itemize}
-        \item Curse of dimensionality: the volume of the search space grows exponentially with $k$.
-        \item Dominance resistance: most solutions tend to be non-dominated.
-        \item Visualization of solutions: difficult to represent and interpret.
-    \end{itemize}
+%         \column{.45\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1.0\linewidth]{imgs/pareto-front.pdf}
+%             \caption{Pareto Front.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
-    \vspace{1em}
-    % Dessa forma, problemas \textit{many}-objetivo usualmente requerem algoritmos especializados para lidar com esses desafios.
-    \begin{block}{State of the art}
-        Specific techniques for multi-objective optimization maintain the objective functions separate. Examples include evolutionary algorithms, such as \alert{NSGA-II} and \alert{NSGA-III}.
-    \end{block}
-\end{frame}
+
+
+% \begin{frame}{\textit{Many}-objective optimization}
+%     Problems with optimization with $k > 3$ objectives are called \textit{many}-objective and present additional challenges:
+%     \begin{itemize}
+%         \item Curse of dimensionality: the volume of the search space grows exponentially with $k$.
+%         \item Dominance resistance: most solutions tend to be non-dominated.
+%         \item Visualization of solutions: difficult to represent and interpret.
+%     \end{itemize}
+
+%     \vspace{1em}
+%     % Dessa forma, problemas \textit{many}-objetivo usualmente requerem algoritmos especializados para lidar com esses desafios.
+%     \begin{block}{State of the art}
+%         Specific techniques for multi-objective optimization maintain the objective functions separate. Examples include evolutionary algorithms, such as \alert{NSGA-II} and \alert{NSGA-III}.
+%     \end{block}
+% \end{frame}
 
 
 
@@ -1106,63 +1115,63 @@
 
 
 
-\subsection{Methodology}
+\section{Methodology}
 
-\begin{frame}{Generative chemistry model \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{columns}[t]
-        \column{.475\textwidth}
-        \begin{itemize}
-            \item \textbf{HierVAE} model based on graphs for generation of molecules with \textbf{100\% validity}~\cite{jin2020hierarchical}.
-            \item Uses \textbf{structural motifs} as building blocks, extracted from recurring patterns in ChEMBL.
-            \item Representation in \textbf{3 levels}: motifs, bonds between motifs, and atomic graph.
-            \item Regular latent space ($z \in \mathbb{R}^{32}$).
-            \item Pre-trained on \textbf{1.8M molecules} from ChEMBL.
-        \end{itemize}
+% \begin{frame}{Generative chemistry model \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{columns}[t]
+%         \column{.475\textwidth}
+%         \begin{itemize}
+%             \item \textbf{HierVAE} model based on graphs for generation of molecules with \textbf{100\% validity}~\cite{jin2020hierarchical}.
+%             \item Uses \textbf{structural motifs} as building blocks, extracted from recurring patterns in ChEMBL.
+%             \item Representation in \textbf{3 levels}: motifs, bonds between motifs, and atomic graph.
+%             \item Regular latent space ($z \in \mathbb{R}^{32}$).
+%             \item Pre-trained on \textbf{1.8M molecules} from ChEMBL.
+%         \end{itemize}
 
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=0.785\linewidth]{imgs/hiervae-encoder.png}
-            \caption{Hierarchical encoder of the HierVAE model~\cite{jin2020hierarchical}.}
-        \end{figure}
-    \end{columns}
-\end{frame}
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=0.785\linewidth]{imgs/hiervae-encoder.png}
+%             \caption{Hierarchical encoder of the HierVAE model~\cite{jin2020hierarchical}.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
-\begin{frame}{Multi-objective evolutionary algorithms \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{columns}[t]
-        \column{.475\textwidth}
-        \textbf{Compared algorithms:}
-        \begin{itemize}
-            \item NSGA-II (multi-objective).
-            \item NSGA-III (\textit{many}-objective).
-            \item Single-objective GA with aggregation.
-        \end{itemize}
+% \begin{frame}{Multi-objective evolutionary algorithms \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{columns}[t]
+%         \column{.475\textwidth}
+%         \textbf{Compared algorithms:}
+%         \begin{itemize}
+%             \item NSGA-II (multi-objective).
+%             \item NSGA-III (\textit{many}-objective).
+%             \item Single-objective GA with aggregation.
+%         \end{itemize}
 
-        \vspace{0.75em}
-        \textbf{General execution:}
-        \begin{itemize}
-            \item 100 generations.
-            \item Population: 800 individuals.
-            \item 11 independent runs per configuration (only 1 run when using molecular docking).
-        \end{itemize}
+%         \vspace{0.75em}
+%         \textbf{General execution:}
+%         \begin{itemize}
+%             \item 100 generations.
+%             \item Population: 800 individuals.
+%             \item 11 independent runs per configuration (only 1 run when using molecular docking).
+%         \end{itemize}
 
-        \column{.475\textwidth}
-        \textbf{Genetic operators:}
-        \begin{itemize}
-            \item 2-point crossover, $p_c = 0{,}9$.
-            \item Gaussian mutation, $p_m = 0{,}1$, $\sigma = 0{,}01$.
-            \item Selection: Binary tournament.
-        \end{itemize}
+%         \column{.475\textwidth}
+%         \textbf{Genetic operators:}
+%         \begin{itemize}
+%             \item 2-point crossover, $p_c = 0{,}9$.
+%             \item Gaussian mutation, $p_m = 0{,}1$, $\sigma = 0{,}01$.
+%             \item Selection: Binary tournament.
+%         \end{itemize}
 
-        \vspace{0.75em}
-        \textbf{Specific configurations:}
-        \begin{itemize}
-            \item NSGA-III: reference directions via Das-Dennis method (num. equal to population size).
-            \item Single-objective GA: 5 weight combinations $(0.6, 0.1, 0.1, 0.1, 0.1)$ to $(0.1, 0.1, 0.1, 0.1, 0.6)$.
-        \end{itemize}
-    \end{columns}
-\end{frame}
+%         \vspace{0.75em}
+%         \textbf{Specific configurations:}
+%         \begin{itemize}
+%             \item NSGA-III: reference directions via Das-Dennis method (num. equal to population size).
+%             \item Single-objective GA: 5 weight combinations $(0.6, 0.1, 0.1, 0.1, 0.1)$ to $(0.1, 0.1, 0.1, 0.1, 0.6)$.
+%         \end{itemize}
+%     \end{columns}
+% \end{frame}
 
 
 \begin{frame}{Proposed generative platform \hfill {\footnotesize \alert{DockTDesign}}}
@@ -1207,107 +1216,107 @@
 
 \end{frame}
 
-\begin{frame}{Optimization objectives and constraints \hfill {\footnotesize \alert{DockTDesign}}}
-    \vspace{-1em}
-    \begin{columns}[t]
-        % Left column
-        \column{.49\textwidth}
+% \begin{frame}{Optimization objectives and constraints \hfill {\footnotesize \alert{DockTDesign}}}
+%     \vspace{-1em}
+%     \begin{columns}[t]
+%         % Left column
+%         \column{.49\textwidth}
 
-        \begin{block}{\textit{Drug-likeness} (QED)}
-            Maximize similarity to the profile of approved drugs.
-            \[
-                f_{\text{QED}}(m) = 1 - \text{QED}(m)
-            \]
-            QED values $\in$ [0,1].
-        \end{block}
+%         \begin{block}{\textit{Drug-likeness} (QED)}
+%             Maximize similarity to the profile of approved drugs.
+%             \[
+%                 f_{\text{QED}}(m) = 1 - \text{QED}(m)
+%             \]
+%             QED values $\in$ [0,1].
+%         \end{block}
 
-        % \vspace{1em}
+%         % \vspace{1em}
 
-        \begin{block}{Synthetic Accessibility (SA)}
-            Penalize molecules that are difficult to synthesize.
-            \[
-                f_{\text{SA}}(m) = (\text{SA}(m) - 1)^2
-            \]
-            SA(m) $\in$ [1,10].
-        \end{block}
+%         \begin{block}{Synthetic Accessibility (SA)}
+%             Penalize molecules that are difficult to synthesize.
+%             \[
+%                 f_{\text{SA}}(m) = (\text{SA}(m) - 1)^2
+%             \]
+%             SA(m) $\in$ [1,10].
+%         \end{block}
 
-        % Right column
-        \column{.49\textwidth}
+%         % Right column
+%         \column{.49\textwidth}
 
-        \begin{block}{Molecular Weight (MW)}
-            Optimize desired target value.
-            \[
-                f_{\text{MW}}(m, v) = (\text{MW}(m) - v)^2
-            \]
-            MW$(m)$: mass in Da; $v$: target value.
-        \end{block}
+%         \begin{block}{Molecular Weight (MW)}
+%             Optimize desired target value.
+%             \[
+%                 f_{\text{MW}}(m, v) = (\text{MW}(m) - v)^2
+%             \]
+%             MW$(m)$: mass in Da; $v$: target value.
+%         \end{block}
 
-        \vspace{1.2em}
+%         \vspace{1.2em}
 
-        \begin{block}{Molecular Complexity (Cx)}
-            Minimize structural complexity.
-            \[
-                f_{\text{Cx}}(m) = \text{Cx}(m)^2
-            \]
-            $Cx \in [0, \infty]$.
-        \end{block}
+%         \begin{block}{Molecular Complexity (Cx)}
+%             Minimize structural complexity.
+%             \[
+%                 f_{\text{Cx}}(m) = \text{Cx}(m)^2
+%             \]
+%             $Cx \in [0, \infty]$.
+%         \end{block}
 
-    \end{columns}
-\end{frame}
-
-
-\begin{frame}{Objectives: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{columns}[c]
-        \column{.375\textwidth}
-        \alert{1. Tanimoto similarity} against molecule BDBM50074960 (K$_i=0.053$ nM LpxC):
-        \begin{equation*}
-            f_{{\text{sim}}}(m, m_{\text{ref}}) \stackrel{\mathrm{def}}{=} 1 - \text{TS}(m, m_{\text{ref}}).
-        \end{equation*}
-
-        \vspace{1em}
-
-        \alert{2. Tanimoto dissimilarity} against molecule BDBM50478376 (K$_i=0.069$ nM LpxC; IC$_{50}=97$ nM MMP-9):
-
-        \begin{equation*}
-            f_{{\text{dissim}}}(m, m'_{\text{ref}}) \stackrel{\mathrm{def}}{=} \text{TS}(m, m'_{\text{ref}}),
-        \end{equation*}
-
-        \column{.575\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=1.2\linewidth]{imgs/ts-compounds.pdf}
-            \caption{Compound (a) BDBM50074960 and (b) BDBM50478376}
-        \end{figure}
-    \end{columns}
-\end{frame}
+%     \end{columns}
+% \end{frame}
 
 
-\begin{frame}{Objectives: molecular docking \hfill {\footnotesize \alert{DockTDesign}}}
-    Integration \alert{DockTDesign} (generative), \alert{DockThor} (pose) and \alert{DockTDeep} (binding affinity):
-    \begin{itemize}
-        % \item Função objetivo para otimização da afinidade de ligação:
-        \[
-            f_{\text{docking}}(m, p, v) = (v - \hat{y}(m, p))^2,
-        \]
-        where $m$: molecule, $p$: protein target, $v$: target value, $\hat{y}$: affinity prediction (\alert{DockTDeep}).
+% \begin{frame}{Objectives: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{columns}[c]
+%         \column{.375\textwidth}
+%         \alert{1. Tanimoto similarity} against molecule BDBM50074960 (K$_i=0.053$ nM LpxC):
+%         \begin{equation*}
+%             f_{{\text{sim}}}(m, m_{\text{ref}}) \stackrel{\mathrm{def}}{=} 1 - \text{TS}(m, m_{\text{ref}}).
+%         \end{equation*}
 
-        \item \textbf{Target}: $v = -25$ kcal/mol (maximize activity).
-        \item \textbf{Anti-target}: $v = 0$ kcal/mol (minimize activity).
-    \end{itemize}
+%         \vspace{1em}
+
+%         \alert{2. Tanimoto dissimilarity} against molecule BDBM50478376 (K$_i=0.069$ nM LpxC; IC$_{50}=97$ nM MMP-9):
+
+%         \begin{equation*}
+%             f_{{\text{dissim}}}(m, m'_{\text{ref}}) \stackrel{\mathrm{def}}{=} \text{TS}(m, m'_{\text{ref}}),
+%         \end{equation*}
+
+%         \column{.575\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1.2\linewidth]{imgs/ts-compounds.pdf}
+%             \caption{Compound (a) BDBM50074960 and (b) BDBM50478376}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
-\end{frame}
+% \begin{frame}{Objectives: molecular docking \hfill {\footnotesize \alert{DockTDesign}}}
+%     Integration \alert{DockTDesign} (generative), \alert{DockThor} (pose) and \alert{DockTDeep} (binding affinity):
+%     \begin{itemize}
+%         % \item Função objetivo para otimização da afinidade de ligação:
+%         \[
+%             f_{\text{docking}}(m, p, v) = (v - \hat{y}(m, p))^2,
+%         \]
+%         where $m$: molecule, $p$: protein target, $v$: target value, $\hat{y}$: affinity prediction (\alert{DockTDeep}).
+
+%         \item \textbf{Target}: $v = -25$ kcal/mol (maximize activity).
+%         \item \textbf{Anti-target}: $v = 0$ kcal/mol (minimize activity).
+%     \end{itemize}
 
 
+% \end{frame}
 
 
 
 
-\subsection{Results}
-% transition frame (Resultados)
-\begin{frame}  % transition page
-    \Large{\centerline{\textbf{Resultados}}}
-\end{frame}
+
+
+\section{Results}
+% % transition frame (Resultados)
+% \begin{frame}  % transition page
+%     \Large{\centerline{\textbf{Results}}}
+% \end{frame}
 
 \begin{frame}{Results: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
     \begin{block}{Experimental design}
@@ -1337,97 +1346,98 @@
 % \end{frame}
 
 
-\begin{frame}{Results: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{columns}[c]
-        \column{.395\textwidth}
-        \begin{table}[ht!]
-            \centering
-            \footnotesize
-            \caption{Multi-objective performance indicators.}
-            \begin{tabular}{@{}lll@{}}
-                \toprule
-                Algo.          & HV\footnotemark[1] & IGD\footnotemark[2] \\ \midrule
-                Single-obj. GA & 0.783              & 0.073               \\
-                NSGA-II        & 0.805              & 0.040               \\
-                NSGA-III       & \textbf{0.880}     & \textbf{0.031}      \\ \bottomrule
-            \end{tabular}
-            \footnotetext[1]{Hypervolume.}
-            \footnotetext[2]{Inverted generational distance.}
-        \end{table}
+% \begin{frame}{Results: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{columns}[c]
+%         \column{.395\textwidth}
+%         \begin{table}[ht!]
+%             \centering
+%             \footnotesize
+%             \caption{Multi-objective performance indicators.}
+%             \begin{tabular}{@{}lll@{}}
+%                 \toprule
+%                 Algo.          & HV\footnotemark[1] & IGD\footnotemark[2] \\ \midrule
+%                 Single-obj. GA & 0.783              & 0.073               \\
+%                 NSGA-II        & 0.805              & 0.040               \\
+%                 NSGA-III       & \textbf{0.880}     & \textbf{0.031}      \\ \bottomrule
+%             \end{tabular}
+%             \footnotetext[1]{Hypervolume.}
+%             \footnotetext[2]{Inverted generational distance.}
+%         \end{table}
 
-        \column{.595\textwidth}
-        \begin{table}[ht!]
-            \centering
-            \footnotesize
-            \caption{Generative chemistry metrics.}
-            \begin{tabular}{@{}lllll@{}}
-                \toprule
-                Algo.    & Valid.\footnotemark[3] & Unic.\footnotemark[4] & DivInt\footnotemark[5] & Nov.\footnotemark[6] \\ \midrule
-                NSGA-II  & \textbf{1.00±0.0}      & \textbf{1.00±0.0}     & \textbf{0.70±0.01}     & 0.87±0.01            \\
-                NSGA-III & \textbf{1.00±0.0}      & 0.75±0.03             & 0.65±0.01              & \textbf{0.93±0.01}   \\ \bottomrule
-            \end{tabular}
-            \footnotetext[3]{Validity.}
-            \footnotetext[4]{Uniqueness@FP.}
-            \footnotetext[5]{Internal diversity.}
-            \footnotetext[6]{Novelty.}
-        \end{table}
-    \end{columns}
+%         \column{.595\textwidth}
+%         \begin{table}[ht!]
+%             \centering
+%             \footnotesize
+%             \caption{Generative chemistry metrics.}
+%             \begin{tabular}{@{}lllll@{}}
+%                 \toprule
+%                 Algo.    & Valid.\footnotemark[3] & Unic.\footnotemark[4] & DivInt\footnotemark[5] & Nov.\footnotemark[6] \\ \midrule
+%                 NSGA-II  & \textbf{1.00±0.0}      & \textbf{1.00±0.0}     & \textbf{0.70±0.01}     & 0.87±0.01            \\
+%                 NSGA-III & \textbf{1.00±0.0}      & 0.75±0.03             & 0.65±0.01              & \textbf{0.93±0.01}   \\ \bottomrule
+%             \end{tabular}
+%             \footnotetext[3]{Validity.}
+%             \footnotetext[4]{Uniqueness@FP.}
+%             \footnotetext[5]{Internal diversity.}
+%             \footnotetext[6]{Novelty.}
+%         \end{table}
+%     \end{columns}
 
-\end{frame}
-
-
-\begin{frame}{Results: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{columns}[c]
-        \column{.495\textwidth}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=1\textwidth]{imgs/results/parallel-coords.png}
-            \caption{Non-dominated solutions generated by the NSGA-III algorithm. Order: $f_{\text{QED}},  f_{\text{SA}}, f_{\text{Cx}},  f_{\text{sim}}, f_{\text{dissim}}$.}
-        \end{figure}
-
-        \column{.495\textwidth}
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=1\textwidth]{imgs/results/compromise-molecule.png}
-            \caption{(a) compromise solution, (b) similarity objective and (c) dissimilarity objective.}
-        \end{figure}
-    \end{columns}
-
-\end{frame}
+% \end{frame}
 
 
-\begin{frame}{Results: molecular docking \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{columns}[c]
-        \column{.475\textwidth}
-        \begin{block}{Protocol I}
-            \textbf{Objectives}:
-            \begin{itemize}
-                \item[1.] maximize QED;
-                \item[2.] minimize SA;
-                \item[3.] minimize complexity;
-                \item[4.] minimize binding affinity for LpxC;
-                \item[5.] maximize binding affinity for MMP-9.
-            \end{itemize}
-        \end{block}
+% \begin{frame}{Results: Tanimoto similarity \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{columns}[c]
+%         \column{.495\textwidth}
+%         \begin{figure}[ht!]
+%             \centering
+%             \includegraphics[width=1\textwidth]{imgs/results/parallel-coords.png}
+%             \caption{Non-dominated solutions generated by the NSGA-III algorithm. Order: $f_{\text{QED}},  f_{\text{SA}}, f_{\text{Cx}},  f_{\text{sim}}, f_{\text{dissim}}$.}
+%         \end{figure}
 
-        \column{.475\textwidth}
-        \begin{block}{Protocol II}
-            \textbf{Objectives}:
-            \begin{itemize}
-                \item[1.] maximize QED;
-                \item[2.] minimize binding affinity for LpxC;
-                \item[3.] maximize binding affinity for MMP-9.
-            \end{itemize}
-            \textbf{Constraints}:
-            \begin{itemize}
-                \item[1.] SA less than or equal to 4;
-                \item[2.] complexity between 150 and 600;
-                \item[3.] molecular weight above 150 Da;
-                \item[4.] QED above 0.5.
-            \end{itemize}
-        \end{block}
-    \end{columns}
-\end{frame}
+%         \column{.495\textwidth}
+%         \begin{figure}[ht!]
+%             \centering
+%             \includegraphics[width=1\textwidth]{imgs/results/compromise-molecule.png}
+%             \caption{(a) compromise solution, (b) similarity objective and (c) dissimilarity objective.}
+%         \end{figure}
+%     \end{columns}
+
+% \end{frame}
+
+
+% \begin{frame}{Results: molecular docking \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{columns}[c]
+%         \column{.475\textwidth}
+%         \begin{block}{Protocol I}
+%             \textbf{Objectives}:
+%             \begin{itemize}
+%                 \item[1.] maximize QED;
+%                 \item[2.] minimize SA;
+%                 \item[3.] minimize complexity;
+%                 \item[4.] minimize binding affinity for LpxC;
+%                 \item[5.] maximize binding affinity for MMP-9.
+%             \end{itemize}
+%         \end{block}
+
+%         \column{.475\textwidth}
+%         \begin{block}{Protocol II}
+%             \textbf{Objectives}:
+%             \begin{itemize}
+%                 \item[1.] maximize QED;
+%                 \item[2.] minimize binding affinity for LpxC;
+%                 \item[3.] maximize binding affinity for MMP-9.
+%             \end{itemize}
+%             \textbf{Constraints}:
+%             \begin{itemize}
+%                 \item[1.] SA less than or equal to 4;
+%                 \item[2.] complexity between 150 and 600;
+%                 \item[3.] molecular weight above 150 Da;
+%                 \item[4.] QED above 0.5.
+%             \end{itemize}
+%         \end{block}
+%     \end{columns}
+% \end{frame}
+
 
 
 \begin{frame}{Results: molecular docking (protocol I) \hfill {\footnotesize \alert{DockTDesign}}}
@@ -1448,13 +1458,13 @@
 % \end{frame}
 
 
-\begin{frame}{Results: molecular docking (protocol II) \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{figure}
-        \centering
-        \includegraphics[width=.8\textwidth]{imgs/results/protocol2-parallel-coords}
-        \caption{Parallel coordinates plot for the solutions obtained with protocol II.}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Results: molecular docking (protocol II) \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=.8\textwidth]{imgs/results/protocol2-parallel-coords}
+%         \caption{Parallel coordinates plot for the solutions obtained with protocol II.}
+%     \end{figure}
+% \end{frame}
 
 % \begin{frame}{Resultados: atracamento molecular (protocolo II) \hfill {\footnotesize \alert{DockTDesign}}}
 %     \begin{figure}
@@ -1465,18 +1475,18 @@
 % \end{frame}
 
 
-\begin{frame}{Results: molecular docking \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{table}
-        \centering
-        \caption{Uniqueness metrics on the Pareto front, internal diversity (DivInt) and novelty considering the molecules generated by experimental protocols I and II.}
-        \begin{tabular}{@{}llll@{}}
-            \toprule
-            Protocol & Uniqueness@FP  & DivInt         & Novelty        \\ \midrule
-            I        & \textbf{0,920} & \textbf{0,745} & 0,653          \\
-            II       & 0,825          & 0,451          & \textbf{0,915} \\ \bottomrule
-        \end{tabular}
-    \end{table}
-\end{frame}
+% \begin{frame}{Results: molecular docking \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{table}
+%         \centering
+%         \caption{Uniqueness metrics on the Pareto front, internal diversity (DivInt) and novelty considering the molecules generated by experimental protocols I and II.}
+%         \begin{tabular}{@{}llll@{}}
+%             \toprule
+%             Protocol & Uniqueness@FP  & DivInt         & Novelty        \\ \midrule
+%             I        & \textbf{0,920} & \textbf{0,745} & 0,653          \\
+%             II       & 0,825          & 0,451          & \textbf{0,915} \\ \bottomrule
+%         \end{tabular}
+%     \end{table}
+% \end{frame}
 
 
 
@@ -1489,47 +1499,47 @@
 \end{frame}
 
 
-\begin{frame}{Results: molecular docking (protocol I) \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\textwidth]{imgs/results/figure-compound9-protocol1-h.png}
-        \caption{Compound 9 from protocol I in the active sites of (a) LpxC and (b) MMP-9. LpxC: -10{,}897 kcal/mol; MMP-9: -5{,}924 kcal/mol; QED: 0{,}911; SA: 2{,}488; Cx: 191{,}971.}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Results: molecular docking (protocol I) \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=1\textwidth]{imgs/results/figure-compound9-protocol1-h.png}
+%         \caption{Compound 9 from protocol I in the active sites of (a) LpxC and (b) MMP-9. LpxC: -10{,}897 kcal/mol; MMP-9: -5{,}924 kcal/mol; QED: 0{,}911; SA: 2{,}488; Cx: 191{,}971.}
+%     \end{figure}
+% \end{frame}
 
 
-\begin{frame}{Results: molecular docking (protocol II) \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\textwidth]{imgs/results/figure_compound1_protocol2_h.png}
-        \caption{Compound 1 from protocol II in the active sites of (a) LpxC and (b) MMP-9. LpxC: -13{,}331 kcal/mol; MMP-9: -7{,}801 kcal/mol; QED: 0{,}83; SA: 2{,}66; Cx: 247{,}997.}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Results: molecular docking (protocol II) \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=1\textwidth]{imgs/results/figure_compound1_protocol2_h.png}
+%         \caption{Compound 1 from protocol II in the active sites of (a) LpxC and (b) MMP-9. LpxC: -13{,}331 kcal/mol; MMP-9: -7{,}801 kcal/mol; QED: 0{,}83; SA: 2{,}66; Cx: 247{,}997.}
+%     \end{figure}
+% \end{frame}
 
 
-\begin{frame}{Results: molecular docking (protocol II) \hfill {\footnotesize \alert{DockTDesign}}}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\textwidth]{imgs/results/figure-compound9-protocol2-h.png}
-        \caption{Compound 9 from protocol II in the active sites of (a) LpxC and (b) MMP-9. LpxC: -11{,}794 kcal/mol; MMP-9: -4{,}694 kcal/mol; QED: 0{,}814; SA: 1{,}813; Cx: 178{,}732.}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Results: molecular docking (protocol II) \hfill {\footnotesize \alert{DockTDesign}}}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=1\textwidth]{imgs/results/figure-compound9-protocol2-h.png}
+%         \caption{Compound 9 from protocol II in the active sites of (a) LpxC and (b) MMP-9. LpxC: -11{,}794 kcal/mol; MMP-9: -4{,}694 kcal/mol; QED: 0{,}814; SA: 1{,}813; Cx: 178{,}732.}
+%     \end{figure}
+% \end{frame}
 
-\section{Conclusions and Perspectives}
+\section{Conclusions}
 
 
 \begin{frame}{Conclusions \hfill {\footnotesize \alert{DockTDesign}}}
 
     \begin{itemize}
-        \item Integration of \textbf{HierVAE} with \textit{many}-objective evolutionary algorithms presents itself as an effective and flexible approach.
+        % \item Integration of \textbf{HierVAE} with \textit{many}-objective evolutionary algorithms presents itself as an effective and flexible approach.
 
-              % \item NSGA-III outperforms NSGA-II and GA with aggregation in convergence and coverage of the Pareto front.
+        % \item NSGA-III outperforms NSGA-II and GA with aggregation in convergence and coverage of the Pareto front.
 
-        \item NSGA-II generates molecules more diverse among themselves; NSGA-III explores innovative regions of chemical space. Adjustments in hyperparameters can improve both.
+        % \item NSGA-II generates molecules more diverse among themselves; NSGA-III explores innovative regions of chemical space. Adjustments in hyperparameters can improve both.
 
-              % \item Predicted affinity and selectivity were optimized without dependence on structural similarity.
+        % \item Predicted affinity and selectivity were optimized without dependence on structural similarity.
 
-              % \item Treating SA and Cx as \textbf{constraints} (not objectives) improves predicted activity and selectivity.
+        % \item Treating SA and Cx as \textbf{constraints} (not objectives) improves predicted activity and selectivity.
         \item \textbf{DockTDesign}, together with \textbf{DockThor} and \textbf{DockTDeep}, presents itself as a promising and flexible platform for hit identification, capable of suggesting to the specialist a set of molecules that simultaneously meet multiple objectives.
 
     \end{itemize}
@@ -1568,14 +1578,14 @@
 
 %------------------------------------------------
 
-\begin{frame}[allowframebreaks]{Referências}
-    \footnotesize
-    % Override the bibliography template to show numbers
-    % \setbeamertemplate{bibliography item}[text]
-    \nocite{*} % Include all entries from the bib file
-    \bibliography{reference.bib}
-    \bibliographystyle{unsrt}
-\end{frame}
+% \begin{frame}[allowframebreaks]{Referências}
+%     \footnotesize
+%     % Override the bibliography template to show numbers
+%     % \setbeamertemplate{bibliography item}[text]
+%     \nocite{*} % Include all entries from the bib file
+%     \bibliography{reference.bib}
+%     \bibliographystyle{unsrt}
+% \end{frame}
 
 %------------------------------------------------
 
@@ -1586,6 +1596,8 @@
     \vspace{1em}
     % put logos, side by sides, for all these [imgs/logos/]: lncc-logo.png, logo-capes.png, logo-faperj.jpg, logo-sinapad.png
     \begin{center}
+        \includegraphics[height=1.cm]{imgs/logos/logo-instituto-ia.png}%
+        \hspace{0.5cm}%
         \includegraphics[height=1.cm]{imgs/logos/lncc-logo.png}%
         \hspace{0.5cm}%
         \includegraphics[height=1.cm]{imgs/logos/logo-sinapad.png}
@@ -1600,47 +1612,47 @@
 %----------------------------------------------------------------------------------------
 
 
-\begin{frame}{NSGA-II}
-    \begin{columns}[c]
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=1\textwidth]{imgs/nsga-ii.png}
-            \caption{NSGA-II algorithm.}
-        \end{figure}
+% \begin{frame}{NSGA-II}
+%     \begin{columns}[c]
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=1\textwidth]{imgs/nsga-ii.png}
+%             \caption{NSGA-II algorithm.}
+%         \end{figure}
 
-        \column{.475\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=0.75\linewidth]{imgs/crowding-distance.png}
-            \caption{Crowding distance in NSGA-II.}
-        \end{figure}
-    \end{columns}
-\end{frame}
-
-
-\begin{frame}{NSGA-III: reference directions}
-    \begin{figure}
-        \centering
-        \includegraphics[width=.4\textwidth]{imgs/nsgaiii-crowding.png}
-        \caption{Reference directions in NSGA-III.}
-    \end{figure}
-
-\end{frame}
+%         \column{.475\textwidth}
+%         \begin{figure}
+%             \centering
+%             \includegraphics[width=0.75\linewidth]{imgs/crowding-distance.png}
+%             \caption{Crowding distance in NSGA-II.}
+%         \end{figure}
+%     \end{columns}
+% \end{frame}
 
 
-\begin{frame}
-    \includegraphics[width=1\textwidth]{imgs/extras-1.png}
-\end{frame}
+% \begin{frame}{NSGA-III: reference directions}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=.4\textwidth]{imgs/nsgaiii-crowding.png}
+%         \caption{Reference directions in NSGA-III.}
+%     \end{figure}
+
+% \end{frame}
 
 
-\begin{frame}
-    \includegraphics[width=1\textwidth]{imgs/extras-2.png}
-\end{frame}
+% \begin{frame}
+%     \includegraphics[width=1\textwidth]{imgs/extras-1.png}
+% \end{frame}
 
 
-\begin{frame}
-    \includegraphics[width=1\textwidth]{imgs/extras-3.png}
-\end{frame}
+% \begin{frame}
+%     \includegraphics[width=1\textwidth]{imgs/extras-2.png}
+% \end{frame}
+
+
+% \begin{frame}
+%     \includegraphics[width=1\textwidth]{imgs/extras-3.png}
+% \end{frame}
 
 \end{document}
