@@ -618,8 +618,7 @@
         %Poucos modelos na literatura abordam a geração \textit{de novo} de moléculas como problemas \textit{many}-objetivo ($k>3$ objetivos simultâneos).
         \begin{block}{Current limitations}
             Methodologies that handle $k\geq$4 objectives are still little
-            explored in the literature, with few studies considering
-            more than three objectives, especially integrating appropriate techniques and generative models~\cite{angelo2023multi}.
+            explored, especially integrating appropriate techniques and generative models~\cite{angelo2023multi}.
         \end{block}
 
         \column{.45\textwidth}
@@ -1189,20 +1188,20 @@
 \begin{frame}{Pharmacological targets \hfill {\footnotesize \alert{DockTDesign}}}
     \begin{columns}[c]
         \column{.495\textwidth}
-        A \textbf{target} and an \textbf{anti-target} (\textit{off-target}) were selected as a case study for generating selective inhibitors:
+        Two antimicrobial targets were selected as a case study for generating multitarget inhibitors:
         \begin{itemize}
-            \item LpxC\footnote{UDP-3-O-acyl-N-acetylglucosamine deacetylase} (\textbf{target} antimicrobial involved in LPS synthesis).
-            \item MMP-9\footnote{matrix metalloproteinase 9} (\textbf{anti-target} human important for extracellular matrix degradation).
+            \item \textbf{LpxC}\footnote{UDP-3-O-acyl-N-acetylglucosamine deacetylase} (antimicrobial \textbf{target} involved in LPS synthesis).
+            \item \textbf{gshA}\footnote{Glutamate–cysteine ligase} (antimicrobial \textbf{target} essential for glutathione biosynthesis).
         \end{itemize}
         \vspace{1em}
-        The choice of targets was made based on the identification of a potent LpxC inhibitor that also inhibits MMP-9 (BDBM50478376).
-        \vspace{1em}
+        % The choice of targets was made based on the identification of a potent LpxC inhibitor that also inhibits gshA (BDBM50478376).
+        % \vspace{1em}
 
         \column{.495\textwidth}
         \begin{figure}
             \centering
-            \includegraphics[width=.45\linewidth]{imgs/lpxc_mmp9_receptors.png}
-            \caption{Receptors (a) LpxC and (b) MMP-9.}
+            \includegraphics[width=.55\linewidth]{imgs/lpxc-gsha-receptors.png}
+            \caption{Receptors (a) LpxC and (b) gshA.}
         \end{figure}
     \end{columns}
 
